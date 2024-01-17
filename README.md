@@ -10,5 +10,5 @@ Index:
 
 
 2) [MONO and FLUX](./src/main/learning/2_mono_flux)
-- Mono
-- Flux
+- [Mono](./src/main/learning/2_mono_flux/1_mono.md) 
+- [Flux](./src/main/learning/2_mono_flux/2_flux.md)
