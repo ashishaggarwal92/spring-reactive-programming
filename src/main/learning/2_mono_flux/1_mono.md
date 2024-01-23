@@ -32,10 +32,10 @@
 - combines the result from this mono and another mono
 
 
-    var m1=Mono.just("First");
-    var m2=Mono.just("Second");
-    Mono<Tuple2<String, String>> tuple2Mono = m1.zipWith(m2);
 
+        var m1=Mono.just("First");
+        var m2=Mono.just("Second");
+        Mono<Tuple2<String, String>> tuple2Mono = m1.zipWith(m2);
         tuple2Mono.subscribe(values->{
             System.out.println(values.getT1());
             System.out.println(values.getT2());

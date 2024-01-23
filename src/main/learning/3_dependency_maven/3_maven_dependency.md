@@ -1,8 +1,8 @@
-For suing mono and flux we need
+1) For using mono and flux we need
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
         <dependency>
             <groupId>io.projectreactor</groupId>
@@ -24,13 +24,15 @@ For suing mono and flux we need
 3) connection factory
 
 # for mysql
-server.port=8081
-#jdbc:mysql://localhost:3307/database
-spring.r2dbc.url=r2dbc:mysql://localhost:3307/boot_work
-spring.r2dbc.username=root
-spring.r2dbc.password=root
+
+    server.port=8081
+    #jdbc:mysql://localhost:3307/database
+    spring.r2dbc.url=r2dbc:mysql://localhost:3307/boot_work
+    spring.r2dbc.username=root
+    spring.r2dbc.password=root
 
 # for h2
+
     @Configuration
     @EnableR2dbcRepositories
     class R2DBCConfiguration extends AbstractR2dbcConfiguration {
