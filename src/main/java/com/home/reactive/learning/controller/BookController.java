@@ -2,6 +2,7 @@ package com.home.reactive.learning.controller;
 
 import com.home.reactive.learning.entity.Book;
 import com.home.reactive.learning.service.BookService;
+import com.home.reactive.learning.service.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -12,36 +13,36 @@ import reactor.core.publisher.Mono;
 public class BookController {
 
     @Autowired
-    private BookService bookService;
+    private BookServiceImpl bookServiceImpl;
 
     //    create
     @PostMapping
     public Mono<Book> create(@RequestBody Book book) {
-        return bookService.create(book);
+        return bookServiceImpl.create(book);
     }
 
     //    get all books
     @GetMapping
     public Flux<Book> getAll() {
-        return bookService.getAll();
+        return bookServiceImpl.getAll();
     }
 
     //    get single book
     @GetMapping("/{bid}")
     public Mono<Book> get(@PathVariable("bid") int bookId) {
-        return bookService.get(bookId);
+        return bookServiceImpl.get(bookId);
     }
 
     //    update
     @PutMapping("/{bookId}")
     public Mono<Book> update(@RequestBody Book book, @PathVariable int bookId) {
-        return bookService.update(book, bookId);
+        return bookServiceImpl.update(book, bookId);
     }
 
     //    delete
     @DeleteMapping("/{bookId}")
     public Mono<Void> delete(@PathVariable int bookId) {
-        return bookService.delete(bookId);
+        return bookServiceImpl.delete(bookId);
     }
 
 //    search
@@ -51,7 +52,7 @@ public class BookController {
             @RequestParam("query") String query
     ) {
         System.out.println(query);
-        return this.bookService.searchBooks(query);
+        return this.bookServiceImpl.searchBooks(query);
     }
 
 }
